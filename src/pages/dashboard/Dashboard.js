@@ -4,7 +4,6 @@ import { Row, Col, Progress, Table, Label, Input } from "reactstrap";
 import Widget from "../../components/Widget";
 
 import Calendar from "./components/calendar/Calendar";
-import Map from "./components/am4chartMap/am4chartMap";
 import Rickshaw from "./components/rickshaw/Rickshaw";
 import Maps from "../../pages/components/maps/google";
 import Information from "../../pages/components/tables/Information";

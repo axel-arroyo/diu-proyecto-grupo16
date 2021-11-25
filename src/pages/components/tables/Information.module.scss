@@ -1,17 +1,20 @@
 @import '../../../styles/app';
-
-.root {
-
-}
+.root {}
 
 .overFlow {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 .mainTableWidget {
-  :global {
-    .table td {
-      border: none;
+     :global {
+        .table td {
+            border: none;
+        }
     }
-  }
+}
+
+ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
