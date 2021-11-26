@@ -8,11 +8,24 @@ import {
 import Widget from "../../../components/Widget";
 import s from "./Information.module.scss";
 import Help from "../help/Help"
+import Agua from "./icons/agua.png";
+import Comida from "./icons/comida.png";
+import Ropa from "./icons/ropa.png";
+import Refugio from "./icons/refugio.png";
 
 function getImage(image) {
-  if (!image) return "https://via.placeholder.com/150x150"
-  let filename = image.toLowerCase()
-  return require(`./icons/${filename}.png`);
+  switch (image){
+    case "Agua":
+      return Agua;
+    case "Comida":
+      return Comida;
+    case "Ropa":
+      return Ropa;
+    case "Refugio":
+      return Refugio;
+    default:
+      return "https://via.placeholder.com/150x150"
+  }
 }
 
 
@@ -55,9 +68,9 @@ class Information extends React.Component {
           tipo: "Terremoto",
           ubicacion: "Región Metropolitana, La Cisterna, Población Asturias",
           necesidades: [
-            {"Agua": 50},
-            {"Comida": 50},
-            {"Ropa": 50},
+            {nombre: "Agua", cantidad: 50},
+            {nombre: "Comida", cantidad: 50},
+            
           ],
           estado: "Crítico",
           latitud: -33.528578, 
@@ -129,7 +142,7 @@ class Information extends React.Component {
                     <ul>
                     {row.necesidades.map((necesidad) => (
                       <li key={necesidad.nombre}>
-                        <img src={getImage(necesidad.nombre)} alt={necesidad.nombre} width="10px" />
+                        <img src={getImage(necesidad.nombre)} alt={necesidad.nombre} height="20px" />
                       </li>
                     ))}
                     </ul>
