@@ -9,18 +9,31 @@ import Widget from '../../../../components/Widget';
 
 import s from './Google.module.scss';
 
-const BasicMap = withScriptjs(withGoogleMap(() =>
-  <GoogleMap
-    defaultZoom={12}
-    defaultCenter={{ lat: parseFloat(-33.448891), lng: parseFloat(-70.669266) }}
-  >
-    <Marker position={{ lat: -33.448891, lng: -70.669266 }} />
-  </GoogleMap>,
-));
+// const BasicMap = withScriptjs(withGoogleMap((props) =>
+//   <GoogleMap
+//     defaultZoom={12}
+//     defaultCenter={{ lat: parseFloat(-33.448891), lng: parseFloat(-70.669266) }}
+//   >
+//     <Marker position={{ lat: -33.448891, lng: -70.669266 }} />
+//   </GoogleMap>,
+// ));
 
 class Maps extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
+    const BasicMap = withScriptjs(withGoogleMap((props) =>
+      <GoogleMap
+        defaultZoom={this.props.info.zoom}
+        defaultCenter={{ lat: parseFloat(this.props.info.latitud), lng: parseFloat(this.props.info.longitud) }}
+      >
+        <Marker position={{ lat: this.props.info.latitud, lng: this.props.info.longitud }} />
+      </GoogleMap>,
+    ));
+
+
     return (
       <div>
         <h1 className="page-title">

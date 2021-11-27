@@ -4,7 +4,7 @@ import {
   Col,
   Table
 } from "reactstrap";
-import { useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 
 import Widget from "../../../components/Widget";
 import s from "./Information.module.scss";
@@ -32,7 +32,6 @@ function getImage(image) {
 function Information(props) {
 
   const data = useSelector(store => store.data.dataList);
-  const dispatch = useDispatch();
 
   const [renderHelp, setRenderHelp] = useState(false);
   const [indexClicked, setIndexClicked] = useState(0);
@@ -42,6 +41,12 @@ function Information(props) {
     widgetRef.current.handleCollapse();
     setRenderHelp(true);
     setIndexClicked(id);
+    const mapInfo = {
+      latitud: data[id].latitud,
+      longitud: data[id].longitud,
+      zoom: 16
+    }
+    props.handler(mapInfo);
   };
 
   return(
@@ -102,7 +107,7 @@ function Information(props) {
     </Row>
     <Row>
       <Col lg={12}>
-      {renderHelp && <Help ref={widgetRef} index={indexClicked} />}
+      {renderHelp && <Help index={indexClicked} />}
       </Col>
     </Row>
     </div>

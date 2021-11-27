@@ -23,8 +23,20 @@ class Dashboard extends React.Component {
     this.state = {
       graph: null,
       checkedArr: [false, false, false],
+      mapInfo: {
+        latitud: -33.448891,
+        longitud: -70.669266,
+        zoom: 12,
+      },
     };
     this.checkTable = this.checkTable.bind(this);
+    this.mapInfoHandler = this.mapInfoHandler.bind(this);
+  }
+
+  mapInfoHandler(mapInfo) {
+    this.setState({
+      mapInfo: mapInfo,
+    });
   }
 
   checkTable(id) {
@@ -67,12 +79,12 @@ class Dashboard extends React.Component {
         <Row>
           <Col lg={7}>
             <Widget className="bg-transparent">
-              <Maps />
+              <Maps info={this.state.mapInfo}/>
             </Widget>
           </Col>
 
           <Col lg={5}>
-            <Information></Information>
+            <Information handler={this.mapInfoHandler}></Information>
           </Col>
 
           
