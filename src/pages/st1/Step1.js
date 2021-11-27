@@ -5,10 +5,20 @@ import { connect } from 'react-redux';
 import ReactDOM from 'react-dom'
 import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Input } from 'reactstrap';
-import Step2 from '../st2'
+import Maps from "../../pages/components/maps/google";
 
 
 export default function Step1() {
+
+    // this.state = {
+    //     graph: null,
+    //     checkedArr: [false, false, false],
+    //     mapInfo: {
+    //       latitud: -33.448891,
+    //       longitud: -70.669266,
+    //       zoom: 12,
+    //     },
+    // };
 
     const [page, setPage] = useState(0);
 
@@ -283,7 +293,10 @@ export default function Step1() {
             >
             Anterior
             </Button>
+            <Maps info={{latitud: -33.448891, longitud: -70.669266, zoom: 12,}}/>
             </div>
+
+            
 
         );
      
