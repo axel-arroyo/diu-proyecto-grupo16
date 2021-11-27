@@ -9,15 +9,10 @@ import Widget from '../../../../components/Widget';
 
 import s from './Google.module.scss';
 
-
-
 class Maps extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-    const BasicMap = withScriptjs(withGoogleMap((props) =>
+    const BasicMap = withScriptjs(withGoogleMap(() =>
       <GoogleMap
         defaultZoom={this.props.info.zoom}
         defaultCenter={{ lat: parseFloat(this.props.info.latitud), lng: parseFloat(this.props.info.longitud) }}

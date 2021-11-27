@@ -22,7 +22,7 @@ const defaultState = {
             correo: "juan@organizacion.com"
           },
           emergencia:{
-            region: "Región de Valparaíso",
+            region: "Valparaíso",
             comuna: "Placilla",
             emergencia: "Terremoto",
             direccion: "Las Hayas 123",
@@ -47,12 +47,38 @@ const defaultState = {
             correo: "pedro@organizacion.cl"
           },
           emergencia:{
-            region: "Región Metropolitana",
+            region: "Región Metropolitana de Santiago",
             comuna: "La Cisterna",
             emergencia: "Terremoto",
             direccion: "Asturias 123",
           }
-        }],
+        },
+        {
+          id: 2,
+          tipo: "Incendio",
+          ubicacion: "Región Metropolitana, El Bosque, Población Los Alamos",
+          necesidades: [
+            {nombre: "Refugio", cantidad: 150},
+            {nombre: "Ropa", cantidad: 150},
+            
+          ],
+          estado: "Crítico",
+          latitud: -33.569124, 
+          longitud: -70.668678,
+          personal: {
+            nombre: "Diego",
+            organizacion: "Organización 3",
+            telefono: "2222222",
+            correo: "diego@organizacion.cl"
+          },
+          emergencia:{
+            region: "Región Metropolitana de Santiago",
+            comuna: "El Bosque",
+            emergencia: "Incendio",
+            direccion: "Los Alamos 123",
+          }
+        }
+      ],
 }
 
 export default function data(state = defaultState, action) {
