@@ -81,6 +81,7 @@ class Sidebar extends React.Component {
                     <a href="#/step1">Light <span
                         className="fw-bold">Blue</span></a>
                 </header>
+                {/* 
                 <ul className={s.nav}>
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -140,11 +141,18 @@ class Sidebar extends React.Component {
                         ]}
                     />
                 </ul>
+                */}
+
+                {/*
                 <h5 className={s.navTitle}>
                     LABELS
-                    {/* eslint-disable-next-line */}
-                </h5>
-                {/* eslint-disable */}
+                    eslint-disable-next-line 
+                
+                </h5> 
+                
+                
+                 eslint-disable 
+                
                 <ul className={s.sidebarLabels}>
                     <li>
                         <a href="#">
@@ -165,10 +173,13 @@ class Sidebar extends React.Component {
                         </a>
                     </li>
                 </ul>
+                */}
                 {/* eslint-enable */}
+                {/*
                 <h5 className={s.navTitle}>
                     PROJECTS
                 </h5>
+                
                 <div className={s.sidebarAlerts}>
                     {this.props.alertsList.map(alert => // eslint-disable-line
                         <Alert
@@ -187,6 +198,7 @@ class Sidebar extends React.Component {
                         </Alert>,
                     )}
                 </div>
+                */}
             </nav>
         );
     }

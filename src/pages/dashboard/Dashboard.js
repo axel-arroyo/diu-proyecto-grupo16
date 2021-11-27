@@ -89,7 +89,7 @@ class Dashboard extends React.Component {
 
           
         </Row>
-
+        {/*  
         <Row>
           <Col lg={6} xl={4} xs={12}>
             <Widget title={<h6> USERBASE GROWTH </h6>} close settings>
@@ -188,7 +188,9 @@ class Dashboard extends React.Component {
             </Widget>
           </Col>
         </Row>
+        */}
 
+        {/* 
         <Row>
           <Col lg={4} xs={12}>
             <Widget
@@ -389,6 +391,7 @@ class Dashboard extends React.Component {
             </Widget>
           </Col>
         </Row>
+        */}
       </div>
     );
   }

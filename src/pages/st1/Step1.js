@@ -6,7 +6,9 @@ import ReactDOM from 'react-dom'
 import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Input } from 'reactstrap';
 import Maps from "../../pages/components/maps/google";
-
+import '../../styles/forms.scss';
+import Row from 'reactstrap/lib/Row';
+import Col from 'reactstrap/lib/Col';
 
 export default function Step1() {
 
@@ -109,38 +111,35 @@ export default function Step1() {
 
     if(page === 0){
         return (
-            <div>
-            <Input
-                value={nombre}
-                placeholder="Nombre"
-                onChange={handleNombre}
-            />
-    
-            <Input
-                value={representante}
-                placeholder="Representante"
-                onChange={handleRepresentante}
-                
-            />
-    
-            <Input
-                value={telefono}
-                placeholder="Telefono"
-                onChange={handleTelefono}
-            />
-    
-            <Input
-                value={correo}
-                placeholder="Correo"
-                onChange={handleCorreo}
-            />
-    
-            <Button
-            color="primary"
-            onClick={handleNextPage}
-            >
-            Siguiente
-            </Button>
+            
+            <div className='form-container'>
+            <h2 className='form-title'>Organización</h2>
+                <Input
+                    value={nombre}
+                    placeholder="Nombre"
+                    onChange={handleNombre} />
+
+                <Input className='mt-4'
+                    value={representante}
+                    placeholder="Representante"
+                    onChange={handleRepresentante} />
+
+                <Input className='mt-4'
+                    value={telefono}
+                    placeholder="Telefono"
+                    onChange={handleTelefono} />
+
+                <Input className='mt-4'
+                    value={correo}
+                    placeholder="Correo"
+                    onChange={handleCorreo} />
+                <div className='center'>
+                <Button className='mt-4' color='primary'
+                    onClick={handleNextPage}
+                >
+                    Siguiente
+                </Button>
+                </div>
             </div>
     
         );
@@ -149,9 +148,9 @@ export default function Step1() {
     else if (page === 1){
         
         return (
-            <div>
-
-        <Dropdown isOpen={regionDropdown} toggle={handleRegionDropdown} value={regionDropdownValue}>
+            <div className='form-container'>
+            <h2 className='form-title'>Informacion de la emergencia</h2>
+        <Dropdown className='mt-3' size='lg' isOpen={regionDropdown} toggle={handleRegionDropdown} value={regionDropdownValue}>
             <DropdownToggle caret>
             {regionDropdownName}
             </DropdownToggle>
@@ -186,7 +185,7 @@ export default function Step1() {
             </DropdownMenu>
         </Dropdown>
 
-        <Dropdown isOpen={comunaDropdown} toggle={handleComunaDropdown} value={comunaDropdownValue}>
+        <Dropdown className='mt-3' size='lg' isOpen={comunaDropdown} toggle={handleComunaDropdown} value={comunaDropdownValue}>
             <DropdownToggle caret>
             {comunaDropdownName}
             </DropdownToggle>
@@ -218,7 +217,7 @@ export default function Step1() {
             </DropdownMenu>
         </Dropdown>
 
-        <Dropdown isOpen={emergenciaDropdown} toggle={handleEmergenciaDropdown} value={emergenciaDropdownValue}>
+        <Dropdown className='mt-3' size='lg' isOpen={emergenciaDropdown} toggle={handleEmergenciaDropdown} value={emergenciaDropdownValue}>
             <DropdownToggle caret>
             {emergenciaDropdownName}
             </DropdownToggle>
@@ -247,25 +246,27 @@ export default function Step1() {
             </DropdownMenu>
         </Dropdown>
 
-        <Input
+        <Input className='mt-3'
                 value={direccion}
-                placeholder="direccion"
+                placeholder="Direccion"
                 onChange={handleDireccion}
             />
-
-        <Button
+        <div className='center'>
+        <Button className='mr-3'
             color="primary"
             onClick={handlePreviousPage}
             >
             Anterior
             </Button>
         
-            <Button
+            <Button className='ml-3'
             color="primary"
             onClick={handleNextPage}
             >
             Siguiente
             </Button>
+            
+            </div>
             
             </div>
 
@@ -275,26 +276,39 @@ export default function Step1() {
 
     else {
         return (
+            <Row>
+                <Col className='ml-3 mt-3'>
 
-            <div>
-                <p>Resumen</p> 
-                <p>{nombre}</p> 
-                <p>{representante}</p> 
-                <p>{telefono}</p> 
-                <p>{correo}</p> 
-                <p>Datos de la Emergencia</p> 
-                <p>{regionDropdownValue}</p>  
-                <p>{comunaDropdownValue}</p>  
-                <p>{emergenciaDropdownValue}</p> 
+                <Maps info={{latitud: -33.448891, longitud: -70.669266, zoom: 12,}}/>
 
-            <Button
-            color="primary"
-            onClick={handlePreviousPage}
-            >
-            Anterior
-            </Button>
-            <Maps info={{latitud: -33.448891, longitud: -70.669266, zoom: 12,}}/>
-            </div>
+                </Col>
+                <Col>
+                <div className='resume'>
+                <h2 className='resume-title'>Resumen</h2> 
+                <h3>Datos Personales</h3> 
+                <p>Organización: {nombre}</p> 
+                <p>Representante: {representante}</p> 
+                <p>Telefono: {telefono}</p> 
+                <p>Correo: {correo}</p> 
+                <h3>Datos de la Emergencia</h3> 
+                <p>Region: {regionDropdownValue}</p>  
+                <p>Comuna: {comunaDropdownValue}</p>  
+                <p>Emergencia: {emergenciaDropdownValue}</p> 
+                <p>Direccion: {direccion}</p>
+                
+
+                <Button
+                color="primary"
+                onClick={handlePreviousPage}
+                >
+                Anterior
+                </Button>
+                </div>
+                </Col>
+            </Row>
+            
+            
+            
 
             
 
