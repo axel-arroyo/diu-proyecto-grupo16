@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from 'reactstrap';
 
 
-export default function Home(){
 
+export default function Home(){
 
     return (
         <>
