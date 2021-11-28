@@ -8,6 +8,7 @@ import {
   FormGroup,
   Input,
   Button,
+  Table
 } from "reactstrap";
 
 import Widget from "../../../components/Widget";
@@ -91,6 +92,11 @@ function Help(props){
     // dispatch(UPDATE_DATA());
   }
 
+  const tableStyle={
+    padding: "0px",
+    fontSize: "20px",
+    color: "white", 
+  }
 
   return(
     <Widget
@@ -104,14 +110,28 @@ function Help(props){
     >
       <Row>
         <Col lg={12}>
-          <h4> Necesidades </h4>
-          {data.necesidades.map((necesidad, index) => (
-              <Row>
-                <Col lg={12}>
-                  <li key={necesidad.nombre}> {necesidad.nombre} - {necesidad.cantidad} </li>
-                </Col>
-              </Row>
-          ))}
+          <Table Col={5} borderless responsive>
+            <thead>
+              <tr>
+                <th style={tableStyle}>Necesidad</th>
+                <th style={tableStyle}>Personas afectadas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.necesidades.map((necesidad, index) => (
+                <tr key={index}>
+                  <td style={tableStyle}>
+                    {necesidad.nombre}
+                  </td>
+                  <td style={tableStyle}>
+                    {necesidad.cantidad}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Col>
+        <Col>
           <h4>Datos Personales</h4>
           <p> <b>Nombre de la organización: </b> {data.personal.organizacion} </p>
           <p> <b>Representante: </b> {data.personal.nombre} </p>
