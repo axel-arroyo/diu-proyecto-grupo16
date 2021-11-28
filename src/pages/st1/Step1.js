@@ -118,13 +118,30 @@ export default function Step1() {
 
     const removeField = (index) => {
         const input = selectedNeeds[index];
-        setInputList([...inputList,input]);
         const newselectedNeeds = [...selectedNeeds];
         newselectedNeeds.splice(index, 1);
-        // console.log(leftNecesidades)
-        // console.log(newleftNecesidades)
+        console.log(newselectedNeeds)
+        
         setSelectedNeeds(newselectedNeeds);
-      }
+        setInputList([...inputList,input]);
+        //console.log(selectedNeeds)
+    }
+
+    const changeNumber = (e,index) => {
+        // console.log(e.target.value);
+        // console.log(index);
+
+        const value = selectedNeeds[index];
+        const newlist = selectedNeeds;
+        value.cantidad = e.target.value;
+        newlist[index] = value;
+        // console.log(newlist);
+        console.log(selectedNeeds);
+        setSelectedNeeds(newlist);
+
+        
+
+    }
 
     //Page Handle
     const handleNextPage = ()=>{
@@ -297,7 +314,7 @@ export default function Step1() {
                 </Col>
                 </Row>
                 {selectedNeeds.map((input, index) => (
-                <Row key={index} id={"input"+ index}>
+                    <Row key={index} id={"input"+ index}>
                     <Col sm={4}>
                     <FormGroup>
                     </FormGroup>
@@ -307,7 +324,7 @@ export default function Step1() {
                     </Col>
                     <Col sm={4}>
                     <FormGroup>
-                        <Input type="number" name="number" id="exampleNumber" placeholder="Cantidad" />
+                        <Input type="number" name="number" id="exampleNumber" placeholder="Cantidad" defaultValue={input.cantidad} onChange={(e) => changeNumber(e,index)}/>
                     </FormGroup>
                     </Col>
                     <Col sm={1}>
