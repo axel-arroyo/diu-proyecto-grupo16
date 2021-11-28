@@ -232,6 +232,11 @@ export default function Step1() {
 
     }
 
+    const validateEmail = (email) => {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
     //Page Handle
     const handleNextPage = ()=>{
         // Revisar que todos los campos esten llenos
@@ -241,7 +246,16 @@ export default function Step1() {
                 alert("Por favor llene todos los campos");
             }
             else{
-                setPage(page+1);
+                // Revisar que el correo y números sea valido
+                if(!validateEmail(correo)){
+                    alert("Por favor ingrese un correo valido");
+                }
+                else if(isNaN(telefono)){
+                    alert("Por favor ingrese un número valido");
+                }
+                else{
+                    setPage(page+1);
+                }
             }
         }
         else if(page == 1){
@@ -309,10 +323,11 @@ export default function Step1() {
                     onChange={handleTelefono} />
 
                 <Input className='mt-4'
+                    type="email"
                     value={correo}
                     placeholder="Correo"
                     onChange={handleCorreo} />
-                <div className='center'>
+                <div style={{textAlign: "center"}}>
                 <Button className='mt-4' color='primary'
                     onClick={handleNextPage}
                 >
