@@ -88,7 +88,13 @@ function Information(props) {
       longitud: data[id].longitud,
       zoom: 16
     }
-    props.handler(mapInfo);
+    props.maphandler(mapInfo);
+  };
+
+  const informationHandler = () => {
+    setRenderHelp(false);
+    widgetRef.current.handleCollapse();
+    props.maphandler({latitud: -33.4378, longitud: -70.6506, zoom: 10});
   };
 
   return(
@@ -213,7 +219,7 @@ function Information(props) {
     </Row>
     <Row>
       <Col lg={12}>
-      {renderHelp && <Help index={indexClicked} />}
+      {renderHelp && <Help informationHandler={informationHandler} index={indexClicked} />}
       </Col>
     </Row>
     </div>

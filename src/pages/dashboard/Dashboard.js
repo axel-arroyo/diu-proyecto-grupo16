@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
       mapInfo: {
         latitud: -33.448891,
         longitud: -70.669266,
-        zoom: 12,
+        zoom: 10,
       },
     };
     this.checkTable = this.checkTable.bind(this);
@@ -86,7 +86,7 @@ class Dashboard extends React.Component {
           </Col>
 
           <Col lg={5}>
-            <Information handler={this.mapInfoHandler}></Information>
+            <Information maphandler={this.mapInfoHandler}></Information>
           </Col>
 
           
