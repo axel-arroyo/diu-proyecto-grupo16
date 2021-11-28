@@ -1,21 +1,23 @@
 import React from "react";
-import { Row, Col, Progress, Table, Label, Input } from "reactstrap";
+import { Row, Col, 
+  // Progress, Table, Label, Input 
+} from "reactstrap";
 
 import Widget from "../../components/Widget";
 
-import Calendar from "./components/calendar/Calendar";
-import Rickshaw from "./components/rickshaw/Rickshaw";
+// import Calendar from "./components/calendar/Calendar";
+// import Rickshaw from "./components/rickshaw/Rickshaw";
 import Maps from "../../pages/components/maps/google";
 import Information from "../../pages/components/tables/Information";
 
-import AnimateNumber from "react-animated-number";
+// import AnimateNumber from "react-animated-number";
 
 import s from "./Dashboard.module.scss";
 
-import peopleA1 from "../../assets/people/a1.jpg";
-import peopleA2 from "../../assets/people/a2.jpg";
-import peopleA5 from "../../assets/people/a5.jpg";
-import peopleA4 from "../../assets/people/a4.jpg";
+// import peopleA1 from "../../assets/people/a1.jpg";
+// import peopleA2 from "../../assets/people/a2.jpg";
+// import peopleA5 from "../../assets/people/a5.jpg";
+// import peopleA4 from "../../assets/people/a4.jpg";
 
 class Dashboard extends React.Component {
   constructor(props) {
