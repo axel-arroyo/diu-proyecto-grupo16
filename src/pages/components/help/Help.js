@@ -27,7 +27,7 @@ function Help(props){
   const [leftNecesidades, setLeftNecesidades] = useState(data.necesidades);
 
   const [satisfiedNeeds, setSatisfiedNeeds] = useState(["Agua", "Comida", "Ropa","Refugio"]);
-  const [satisfiedNeed, setSatisfiedNeed] = useState({nombre:"",cantidad:100});
+  const [satisfiedNeed, setSatisfiedNeed] = useState({nombre:"",cantidad:0});
 
   // const [inputList, setInputList] = useState([
   //   {necesidad: leftNecesidades[0].nombre, cantidad: leftNecesidades[0].cantidad},
@@ -59,7 +59,7 @@ function Help(props){
     // console.log(filteredArray);
     setLeftNecesidades(filteredArray);
     }
-    setSatisfiedNeed({nombre:"",cantidad:100});
+    setSatisfiedNeed({nombre:"",cantidad:0});
   }
 
   const handleSatisfiedNeeds = (e) => {
@@ -73,7 +73,7 @@ function Help(props){
   const handleSatisfiedNeed = (e) => {
 
     const name = e.target.value;
-    setSatisfiedNeed({nombre: e.target.value,cantidad:100});
+    setSatisfiedNeed({nombre: e.target.value,cantidad:0});
   }
 
 
@@ -88,12 +88,31 @@ function Help(props){
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("submitForm");
-    // dispatch(UPDATE_DATA());
+    // Revisar que no haya campos vacios
+    if (inputList.length === 0) {
+      alert("No puede dejar campos vacios");
+    }
+    else {
+      // Revisar que un campoo no sea 0
+      let flag = false;
+      inputList.forEach(input => {
+        if(input.cantidad <= 0){
+          flag = true;
+        }});
+      if(flag){
+        alert("Los recursos a envíar deben ser mayores a 0");
+      }
+      else{
+        alert("Formulario enviado. ¡Gracias por tu ayuda!");
+        window.location.reload();
+      }
+    }
   }
 
-  const customClose = () => {
-    console.log("customClose");
+  const changeNumber = (e, index) => {
+    const newInputList = [...inputList];
+    newInputList[index].cantidad = e.target.value;
+    setInputList(newInputList);
   }
 
   const tableStyle={
@@ -173,7 +192,7 @@ function Help(props){
             </Col>
             <Col sm={4}>
               <FormGroup>
-                <Input type="number" name="number" id="exampleNumber" placeholder="Cantidad" />
+                <Input type="number" name="number" id="exampleNumber" placeholder="Cantidad" defaultValue={input.cantidad} onChange={(e) => changeNumber(e,index)} />
               </FormGroup>
             </Col>
             <Col sm={1}>
