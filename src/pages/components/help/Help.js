@@ -26,28 +26,40 @@ function Help(props){
   
   const [leftNecesidades, setLeftNecesidades] = useState(data.necesidades);
 
-  const [satisfiedNeeds, setSatisfiedNeeds] = useState({
-    "Agua": false,
-    "Comida": false,
-    "Ropa": false,
-    "Refugio": false,
-  });
+  const [satisfiedNeeds, setSatisfiedNeeds] = useState(["Agua", "Comida", "Ropa","Refugio"]);
+  const [satisfiedNeed, setSatisfiedNeed] = useState({nombre:"",cantidad:100});
 
-  const [inputList, setInputList] = useState([
-    {necesidad: leftNecesidades[0].nombre, cantidad: leftNecesidades[0].cantidad},
-  ]);
+  // const [inputList, setInputList] = useState([
+  //   {necesidad: leftNecesidades[0].nombre, cantidad: leftNecesidades[0].cantidad},
+  // ]);
+  const [inputList, setInputList] = useState([]);
+
 
   const removeField = (index) => {
-    console.log(index);
-    const input = document.getElementById("select"+index);
-    console.log(input);
+    //console.log(index);
+    const input = inputList[index];
+    //console.log(input);
+    
     const newInputList = [...inputList];
     newInputList.splice(index, 1);
+    const newleftNecesidades = [...leftNecesidades,input]
+    // console.log(leftNecesidades)
+    // console.log(newleftNecesidades)
     setInputList(newInputList);
+    setLeftNecesidades(newleftNecesidades);
   }
 
   const addField = () => {
-    setInputList([...inputList, {necesidad: leftNecesidades[0].nombre, cantidad: leftNecesidades[0].cantidad}]);
+    if(satisfiedNeed.nombre != ""){
+      setInputList([...inputList, satisfiedNeed]);
+    //remover el objecto
+    // console.log(satisfiedNeed);
+    // console.log(leftNecesidades);
+    let filteredArray = leftNecesidades.filter(item => item.nombre !== satisfiedNeed.nombre);
+    // console.log(filteredArray);
+    setLeftNecesidades(filteredArray);
+    }
+    setSatisfiedNeed({nombre:"",cantidad:100});
   }
 
   const handleSatisfiedNeeds = (e) => {
@@ -57,6 +69,13 @@ function Help(props){
     newState[name] = !newState[name];
     setSatisfiedNeeds(newState);
   }
+
+  const handleSatisfiedNeed = (e) => {
+
+    const name = e.target.value;
+    setSatisfiedNeed({nombre: e.target.value,cantidad:100});
+  }
+
 
   const handleLeftNecesidades = (event) => {
     const newList = leftNecesidades.filter(necesidad => {
@@ -127,34 +146,51 @@ function Help(props){
       </Row>
       <Form>
         <h3>Enviar Recursos</h3>
+        <Row key={1} id={"input"}>
+        <Col sm={8}>
+        <Input type="select" name="select" id="select" value={satisfiedNeed.nombre} onChange={handleSatisfiedNeed}>
+          <option key={-1} value={null}></option>
+          {leftNecesidades.map((necesidad, j) => (
+            <option key={j} value={necesidad.nombre}>{necesidad.nombre}</option>
+          ))}
+        </Input>
+        </Col>
+        <Col sm={1}>
+              <Button color="#ff5c5c" onClick={addField}>
+                <img src={Plus} alt="Plus" height="30px" width="30px" />
+              </Button>
+        </Col>
+        </Row>
         {inputList.map((input, index) => (
           <Row key={index} id={"input"+ index}>
             <Col sm={4}>
               <FormGroup>
-                <Input type="select" id={"select"+index} name="select" id="select" onChange={handleSatisfiedNeeds}>
+                {/* <Input type="select" id={"select"+index} name="select" id="select" onChange={handleSatisfiedNeeds}>
                   <option key={-1} value={null}></option>
-                  {data.necesidades.map((necesidad, j) => (
-                    satisfiedNeeds[necesidad.nombre] ? null :
-                    <option key={j} value={necesidad.nombre}>{necesidad.nombre}</option>
+                  {leftNecesidades.map((necesidad, j) => (
+                    <option key={j} value={necesidad}>{necesidad}</option>
                   ))}
-                </Input>
+                </Input> */}
               </FormGroup>
+            </Col>
+            <Col sm={2}>
+                <p>{input.nombre}</p>
             </Col>
             <Col sm={4}>
               <FormGroup>
                 <Input type="number" name="number" id="exampleNumber" placeholder="Cantidad" />
               </FormGroup>
-              </Col>
+            </Col>
             <Col sm={1}>
               <Button color="#ff5c5c" onClick={() => removeField(index)}>
                 <img src={Minus} alt="Minus" height="30px" width="30px" />
               </Button>
             </Col>
-            <Col sm={1}>
+            {/* <Col sm={1}>
               <Button color="#ff5c5c" onClick={addField}>
                 <img src={Plus} alt="Plus" height="30px" width="30px" />
               </Button>
-            </Col>
+            </Col> */}
           </Row>
         ))}
         <Button color="success" onClick={submitForm}>Enviar</Button>
