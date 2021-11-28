@@ -229,6 +229,9 @@ export default function Step1() {
 
             </DropdownMenu>
         </Dropdown>
+        
+        
+
 
         <Dropdown className='mt-3' size='lg' isOpen={comunaDropdown} toggle={handleComunaDropdown} value={comunaDropdownValue}>
             <DropdownToggle caret>
@@ -315,10 +318,6 @@ export default function Step1() {
                 </Row>
                 {selectedNeeds.map((input, index) => (
                     <Row key={index} id={"input"+ index}>
-                    <Col sm={4}>
-                    <FormGroup>
-                    </FormGroup>
-                    </Col>
                     <Col sm={2}>
                         <p>{input.nombre}</p>
                     </Col>
@@ -339,15 +338,15 @@ export default function Step1() {
                     </Col> */}
                 </Row>
                 ))}
-        <div className='center'>
-        <Button className='mr-3'
+        <div style={{textAlign:'center'}}>
+        <Button className='mr-3 mt-3'
             color="primary"
             onClick={handlePreviousPage}
             >
             Anterior
             </Button>
         
-            <Button className='ml-3'
+            <Button className='ml-3 mt-3'
             color="primary"
             onClick={handleNextPage}
             >

@@ -165,16 +165,6 @@ function Help(props){
         </Row>
         {inputList.map((input, index) => (
           <Row key={index} id={"input"+ index}>
-            <Col sm={4}>
-              <FormGroup>
-                {/* <Input type="select" id={"select"+index} name="select" id="select" onChange={handleSatisfiedNeeds}>
-                  <option key={-1} value={null}></option>
-                  {leftNecesidades.map((necesidad, j) => (
-                    <option key={j} value={necesidad}>{necesidad}</option>
-                  ))}
-                </Input> */}
-              </FormGroup>
-            </Col>
             <Col sm={2}>
                 <p>{input.nombre}</p>
             </Col>
