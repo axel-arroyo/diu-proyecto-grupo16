@@ -12,6 +12,7 @@ const defaultState = {
             {nombre: "Ropa", cantidad: 100},
             {nombre: "Refugio", cantidad: 100},
           ],
+          statecss: "critical",
           estado: "Crítico",
           latitud: -33.120088, 
           longitud: -71.577629,
@@ -37,6 +38,7 @@ const defaultState = {
             {nombre: "Comida", cantidad: 50},
             
           ],
+          statecss: "critical",
           estado: "Crítico",
           latitud: -33.528578, 
           longitud: -70.669660,
@@ -62,6 +64,7 @@ const defaultState = {
             {nombre: "Ropa", cantidad: 150},
             
           ],
+          statecss: "critical",
           estado: "Crítico",
           latitud: -33.569124, 
           longitud: -70.668678,
@@ -85,6 +88,7 @@ const defaultState = {
           necesidades: [
             {nombre: "Agua", cantidad: 10},
           ],
+          statecss: "not-critical",
           estado: "No Crítico",
           latitud: -18.472928, 
           longitud: -70.301004,
