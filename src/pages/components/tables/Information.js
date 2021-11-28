@@ -5,7 +5,9 @@ import {
   Table,
   Form,
   Input,
-  Label
+  Label,
+  InputGroup,
+  InputGroupText
 } from "reactstrap";
 import { useSelector} from "react-redux";
 
@@ -151,6 +153,22 @@ function Information(props) {
         </Input>
         </FormGroup>
         </Col>
+        </Row>
+        <Row>
+          <Col sm={12}>
+            <InputGroup>
+              <InputGroupText>
+                <Input
+                  addon
+                  aria-label="onlyCritical"
+                  type="checkbox"
+                  onChange={(e) => setOnlyCritical(e.target.checked)}
+                  defaultChecked={onlyCritical}
+                />
+              </InputGroupText>
+              <Label for="onlyCritical" size="md">Mostrar solo zonas en estado crítico</Label>
+            </InputGroup>
+          </Col>
         </Row>
       </Form>
     </div>

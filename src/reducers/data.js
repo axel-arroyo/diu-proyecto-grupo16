@@ -77,6 +77,29 @@ const defaultState = {
             emergencia: "Incendio",
             direccion: "Los Alamos 123",
           }
+        },
+        {
+          id: 3,
+          tipo: "Sequía",
+          ubicacion: "Región de Arica y Parinacota, Arica, Población Charles Richet",
+          necesidades: [
+            {nombre: "Agua", cantidad: 10},
+          ],
+          estado: "No Crítico",
+          latitud: -18.472928, 
+          longitud: -70.301004,
+          personal: {
+            nombre: "Luis",
+            organizacion: "Organización 4",
+            telefono: "2222222",
+            correo: "luis@organizacion.cl"
+          },
+          emergencia:{
+            region: "Región de Arica y Parinacota",
+            comuna: "Arica",
+            emergencia: "Sequía",
+            direccion: "Charles Richet 123",
+          }
         }
       ],
 }
