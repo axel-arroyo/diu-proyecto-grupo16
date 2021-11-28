@@ -103,7 +103,7 @@ function Help(props){
       ref={helpWidget}
       title={
         <h5>
-          <span className="fw-semi-bold">Enviar Ayuda</span>
+          {data.estado === "Crítico" ? (<span className="fw-semi-bold">Enviar Ayuda</span>) : (<span className="fw-semi-bold">Detalles</span>)}
         </h5>
       }
       close
@@ -144,6 +144,7 @@ function Help(props){
           <p> <b>Emergencia: </b> {data.emergencia.emergencia} </p>
         </Col>
       </Row>
+      {data.estado === "Crítico" && (
       <Form>
         <h3>Enviar Recursos</h3>
         <Row key={1} id={"input"}>
@@ -160,6 +161,7 @@ function Help(props){
                 <img src={Plus} alt="Plus" height="30px" width="30px" />
               </Button>
         </Col>
+        
         </Row>
         {inputList.map((input, index) => (
           <Row key={index} id={"input"+ index}>
@@ -195,42 +197,7 @@ function Help(props){
         ))}
         <Button color="success" onClick={submitForm}>Enviar</Button>
       </Form>
-        {/* <Row>
-          <Col>
-            <FormGroup>
-            <Input
-              name="selection"
-              type="select"
-            >
-              {data.necesidades.map((necesidad, index) => {
-                return (
-                  <option key={index} name={index}>
-                    {necesidad.nombre}
-                  </option>
-                );
-              })}
-            </Input>
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Input id="field1quantity" type="number" placeholder="Cantidad" />
-            </FormGroup>
-          </Col>
-          <Col>
-            <Button size="sm" color="#ff5c5c">
-              <img src={Plus} onClick={addField} alt="Agregar recurso" width="30px"/>
-            </Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <Button size="lg" color="primary" onClick={submitForm}>
-            Enviar
-          </Button>
-          </Col>
-        </Row> 
-      </Form>   */}
+        )}
     </Widget>
   );
 }

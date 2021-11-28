@@ -150,7 +150,7 @@ class Header extends React.Component {
             </NavLink>
         </div>
         <div className={`d-print-none ${s.root}`}>
-          <UncontrolledAlert
+          {/* <UncontrolledAlert
             className={`${s.alert} mr-3 d-lg-down-none animate__animated animate__bounceIn animate__delay-1s`}
           >
             Check out Light Blue{" "}
@@ -161,8 +161,8 @@ class Header extends React.Component {
               <SettingsIcon className={s.settingsIcon} />
             </button>{" "}
             on the right!
-          </UncontrolledAlert>
-          <Collapse
+          </UncontrolledAlert> */}
+          {/* <Collapse
             className={`${s.searchCollapse} ml-lg-0 mr-md-3`}
             isOpen={this.state.searchOpen}
           >
@@ -184,8 +184,8 @@ class Header extends React.Component {
                 onBlur={() => this.setState({ searchFocused: false })}
               />
             </InputGroup>
-          </Collapse>
-          <Form className="d-md-down-none mr-3 ml-3" inline>
+          </Collapse> */}
+          {/* <Form className="d-md-down-none mr-3 ml-3" inline>
             <FormGroup>
               <InputGroup className={`input-group-no-border ${s.searchForm}`}>
                 <InputGroupAddon addonType="prepend">
@@ -200,10 +200,18 @@ class Header extends React.Component {
                 />
               </InputGroup>
             </FormGroup>
-          </Form>
+          </Form> */}
 
           <Nav className="ml-md-0">
-            <Dropdown
+            <NavItem className={s.navItem}>
+            <span
+                  className={`${s.avatar} rounded-circle thumb-sm float-left`}
+                >
+                  <img src={avatar} alt="..." />
+                </span>
+                <span className={`small d-sm-down-none ${s.accountCheck}`}>Philip smith</span>
+            </NavItem>
+            {/* <Dropdown
               nav
               isOpen={this.state.notificationsOpen}
               toggle={this.toggleNotifications}
@@ -273,15 +281,14 @@ class Header extends React.Component {
                   </div>
                 </DropdownItem>
                 <DropdownItem>
-                  {/* eslint-disable-next-line */}
                   <a href="#" className="text-white">
                     See all messages <ArrowIcon className={s.headerIcon} maskName="messagesArrow" />
                   </a>
                 </DropdownItem>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
             <NavItem className={`${s.divider} d-none d-sm-block`} />
-            <Dropdown
+            {/* <Dropdown
               className="d-none d-sm-block"
               nav
               isOpen={this.state.settingsOpen}
@@ -334,8 +341,8 @@ class Header extends React.Component {
                   </Button>
                 </ButtonGroup>
               </DropdownMenu>
-            </Dropdown>
-            <Dropdown
+            </Dropdown> */}
+            {/* <Dropdown
               className="d-none d-sm-block"
               nav
               isOpen={this.state.supportOpen}
@@ -381,13 +388,12 @@ class Header extends React.Component {
                   </div>
                 </DropdownItem>
                 <DropdownItem>
-                  {/* eslint-disable-next-line */}
                   <a href="#" className="text-white">
                     See all tickets <ArrowIcon className={s.headerIcon} maskName="bellArrow" />
                   </a>
                 </DropdownItem>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
             <NavItem>
               <NavLink
                 onClick={this.doLogout}

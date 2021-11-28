@@ -72,7 +72,7 @@ class Dashboard extends React.Component {
         <h1 className="page-title">
           Dashboard &nbsp;
           <small>
-            <small>The Lucky One</small>
+            <small>Grupo 16</small>
           </small>
         </h1>
 
