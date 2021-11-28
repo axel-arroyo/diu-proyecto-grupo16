@@ -92,6 +92,10 @@ function Help(props){
     // dispatch(UPDATE_DATA());
   }
 
+  const customClose = () => {
+    console.log("customClose");
+  }
+
   const tableStyle={
     padding: "0px",
     fontSize: "20px",
@@ -106,7 +110,6 @@ function Help(props){
           {data.estado === "Crítico" ? (<span className="fw-semi-bold">Enviar Ayuda</span>) : (<span className="fw-semi-bold">Detalles</span>)}
         </h5>
       }
-      close
     >
       <Row>
         <Col lg={12}>
@@ -185,9 +188,17 @@ function Help(props){
             </Col> */}
           </Row>
         ))}
-        <Button color="success" onClick={submitForm}>Enviar</Button>
       </Form>
         )}
+        <Row>
+          <Col sm={2}>
+            <Button color="danger" onClick={props.informationHandler}>Volver</Button>
+          </Col>
+          {data.estado === "Crítico" && (
+          <Col sm={2}>
+            <Button color="success" onClick={submitForm}>Enviar</Button>
+          </Col>)}
+        </Row>
     </Widget>
   );
 }
