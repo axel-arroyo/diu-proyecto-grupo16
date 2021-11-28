@@ -14,8 +14,6 @@ import Login from '../pages/login';
 import Register from '../pages/register';
 import Home from '../pages/home';
 import Step1 from '../pages/st1';
-import Step2 from '../pages/st2';
-import Step3 from '../pages/st3';
 import { logoutUser } from '../actions/user';
 
 const PrivateRoute = ({dispatch, component, ...rest }) => {
@@ -42,15 +40,13 @@ class App extends React.PureComponent {
             />
             <HashRouter>
                 <Switch>
-                    <Route path="/" exact render={() => <Redirect to="/app/main"/>}/>
+                    <Route path="/" exact render={() => <Redirect to="/home"/>}/>
                     <Route path="/app" exact render={() => <Redirect to="/app/main"/>}/>
-                    <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/register" exact component={Register}/>
+                    <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/home" exact component={Home}/>
                     <Route path="/step1" exact component={Step1}/>
-                    <Route path="/step2" exact component={Step2}/>
-                    <Route path="/step3" exact component={Step3}/>
                     <Route path="/error" exact component={ErrorPage}/>
                     <Route component={ErrorPage}/>
                     <Redirect from="*" to="/app/main/dashboard"/>

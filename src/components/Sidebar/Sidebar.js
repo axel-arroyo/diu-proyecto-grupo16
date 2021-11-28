@@ -78,8 +78,7 @@ class Sidebar extends React.Component {
                 }}
             >
                 <header className={s.logo}>
-                    <a href="#/step1">Light <span
-                        className="fw-bold">Blue</span></a>
+                    <a href="/">Home </a>
                 </header>
                 {/* 
                 <ul className={s.nav}>

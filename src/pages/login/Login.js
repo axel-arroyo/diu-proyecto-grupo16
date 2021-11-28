@@ -60,10 +60,7 @@ class Login extends React.Component {
         return (
             <div className="auth-page">
                 <Container>
-                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Login to your Web App</h3>}>
-                        <p className="widget-auth-info">
-                            Use your email to sign in.
-                        </p>
+                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Necesitas permisos para ingresar a esta página</h3>}>
                         <form onSubmit={this.doLogin}>
                             {
                                 this.props.errorMessage && (
@@ -73,7 +70,7 @@ class Login extends React.Component {
                                 )
                             }
                             <FormGroup className="mt">
-                                <Label for="email">Email</Label>
+                                <Label for="email">Correo</Label>
                                 <InputGroup className="input-group-no-border">
                                     <InputGroupAddon addonType="prepend">
                                         <InputGroupText>
@@ -85,7 +82,7 @@ class Login extends React.Component {
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="password">Password</Label>
+                                <Label for="password">Contraseña</Label>
                                 <InputGroup className="input-group-no-border">
                                     <InputGroupAddon addonType="prepend">
                                         <InputGroupText>
@@ -103,12 +100,12 @@ class Login extends React.Component {
                                   <span className="auth-btn-circle" style={{marginRight: 8}}>
                                     <i className="la la-caret-right"/>
                                   </span>
-                                  {this.props.isFetching ? 'Loading...' : 'Login'}
+                                  {this.props.isFetching ? 'Loading...' : 'Iniciar sesión'}
                                 </Button>
                                 <p className="widget-auth-info mt-4">
-                                    Don't have an account? Sign up now!
+                                    ¿No tienes una cuenta?
                                 </p>
-                                <Link className="d-block text-center mb-4" to="register">Create an Account</Link>
+                                <Link className="d-block text-center mb-4" to="register">Regístrate</Link>
                                 <div className="social-buttons">
                                     <Button color="primary" className="social-button">
                                         <i className="social-icon social-google"/>

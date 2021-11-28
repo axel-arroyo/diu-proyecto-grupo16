@@ -6,6 +6,7 @@ import ReduxThunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/App';
+import Home from './pages/home';
 import reducers from './reducers';
 
 const store = createStore(
@@ -16,6 +17,7 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <App />
+        {/* <Home /> */}
     </Provider>,
     document.getElementById('root')
 );
@@ -23,4 +25,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();
