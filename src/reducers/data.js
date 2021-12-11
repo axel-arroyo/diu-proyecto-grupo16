@@ -49,7 +49,7 @@ const defaultState = {
             correo: "pedro@organizacion.cl"
           },
           emergencia:{
-            region: "Región Metropolitana de Santiago",
+            region: "Metropolitana de Santiago",
             comuna: "La Cisterna",
             emergencia: "Terremoto",
             direccion: "Asturias 123",
@@ -75,7 +75,7 @@ const defaultState = {
             correo: "diego@organizacion.cl"
           },
           emergencia:{
-            region: "Región Metropolitana de Santiago",
+            region: "Metropolitana de Santiago",
             comuna: "El Bosque",
             emergencia: "Incendio",
             direccion: "Los Alamos 123",
@@ -99,7 +99,7 @@ const defaultState = {
             correo: "luis@organizacion.cl"
           },
           emergencia:{
-            region: "Región de Arica y Parinacota",
+            region: "Arica y Parinacota",
             comuna: "Arica",
             emergencia: "Sequía",
             direccion: "Charles Richet 123",
