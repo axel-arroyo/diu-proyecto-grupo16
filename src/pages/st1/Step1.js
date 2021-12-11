@@ -289,7 +289,7 @@ export default function Step1() {
     const handleSubmit = (e)=>{
         e.preventDefault();
         alert("Solicitud enviada. ¡Estaremos atentos!");
-        window.location.href="/";
+        window.location.href="/diu-proyecto-grupo16/";
     }
 
     const tableStyle={
