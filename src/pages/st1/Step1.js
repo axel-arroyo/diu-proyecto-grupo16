@@ -303,7 +303,7 @@ export default function Step1() {
             
             <>
             <header className="logo">
-            <a style={{color: "#C1C3CF", fontFamily: "Open Sans"}} href="/"><b>Home </b></a>
+            <a style={{color: "#C1C3CF", fontFamily: "Open Sans"}} href="/diu-proyecto-grupo16/"><b>Home </b></a>
             </header>
             <div className='form-container'>
             <h2 className='form-title'>Organización</h2>

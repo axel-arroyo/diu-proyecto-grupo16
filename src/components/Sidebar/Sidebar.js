@@ -78,7 +78,7 @@ class Sidebar extends React.Component {
                 }}
             >
                 <header className={s.logo}>
-                    <a href="/">Home </a>
+                    <a href="/diu-proyecto-grupo16/">Home </a>
                 </header>
                 {/* 
                 <ul className={s.nav}>
